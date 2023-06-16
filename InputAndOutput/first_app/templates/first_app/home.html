@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock title %}
+{% block content %}
+{% load crispy_forms_tags %}
+<h3 style="text-align: center"> STUDENT INFO </h3>
+    {% if data %}
+      <table class="table table-bordered" style="width: 50%; height: 50%; margin:auto">
+        <thead>
+          <tr>
+            <th scope="col">Student ID</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Student Class</th>
+            <th scope="col">Student Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for st in data %}
+          <tr>
+            <th scope="row">{{st.roll}}</th>
+            <td>{{st.name}}</td>
+            <td>{{st.class_name}}</td>
+            <td>{{st.address}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+        <h3>No data available to show</h3>
+    {% endif %}
+{% endblock content %}This is Home page
