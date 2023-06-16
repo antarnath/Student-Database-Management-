@@ -14,6 +14,7 @@ def add_student(request):
         if form.is_valid():
             form.save()
             print(form.cleaned_data)
+            return redirect('show_student')
     else:
         form = StudentForm()
     return render(request, 'first_app/add_student.html', {'form':form})
